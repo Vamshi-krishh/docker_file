@@ -4,7 +4,7 @@ USE mydb;
 
 -- Create the tv_shows table
 CREATE TABLE tv_shows (
-  id INT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(45),
   synopsis VARCHAR(45),
   release_year INT
@@ -12,12 +12,14 @@ CREATE TABLE tv_shows (
 
 -- Create the tv_characters table
 CREATE TABLE tv_characters (
-  id INT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(45),
   description VARCHAR(45),
   tv_show_id INT,
   FOREIGN KEY (tv_show_id) REFERENCES tv_shows(id)
 );
+
+
 
 -- Insert sample data into tv_shows
 INSERT INTO tv_shows (id, title, synopsis, release_year)
