@@ -2,39 +2,37 @@
 CREATE DATABASE mydb;
 USE mydb;
 
--- Create the tv_shows table
+-- Create table tv_shows
 CREATE TABLE tv_shows (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  title VARCHAR(45),
-  synopsis VARCHAR(45),
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  synopsis VARCHAR(255),
   release_year INT
 );
 
--- Create the tv_characters table
+-- Create table tv_characters
 CREATE TABLE tv_characters (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(45),
-  description VARCHAR(45),
+  character_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255),
   tv_show_id INT,
   FOREIGN KEY (tv_show_id) REFERENCES tv_shows(id)
 );
 
-
-
 -- Insert sample data into tv_shows
-INSERT INTO tv_shows (id, title, synopsis, release_year)
+INSERT INTO tv_shows (title, synopsis, release_year)
 VALUES
-  (1, 'Game of Thrones', 'Epic fantasy series', 2011),
-  (2, 'Friends', 'Friends', 1994),
-  (3, 'Breaking Bad', 'Drug lord', 2008),
-  (4, 'Stranger Things', 'Science fiction', 2016),
-  (5, 'The Office', 'Mockumentary sitcom', 2005);
+  ('Game of Thrones', 'Epic fantasy series', 2011),
+  ('Friends', 'Friends', 1994),
+  ('Breaking Bad', 'Drug lord', 2008),
+  ('Stranger Things', 'Science fiction', 2016),
+  ('The Office', 'Mockumentary sitcom', 2005);
 
 -- Insert sample data into tv_characters
-INSERT INTO tv_characters (id, name, description, tv_show_id)
+INSERT INTO tv_characters (name, description, tv_show_id)
 VALUES
-  (1, 'Jon Snow', 'Brave and noble', 1),
-  (2, 'Rachel Green', 'Fashionable and quirky', 2),
-  (3, 'Walter White', 'Teacher turned criminal', 3),
-  (4, 'Eleven', 'Supergirl', 4),
-  (5, 'Jim Halpert', 'Prankster', 5);
+  ('Jon Snow', 'Brave and noble', 1),
+  ('Rachel Green', 'Fashionable and quirky', 2),
+  ('Walter White', 'Teacher turned criminal', 3),
+  ('Eleven', 'Supergirl', 4),
+  ('Jim Halpert', 'Prankster', 5);
